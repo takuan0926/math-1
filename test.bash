@@ -9,7 +9,9 @@ res=0
 
 # 正しい引数を渡してtiac.pyを実行
 out=$(python3 ./tiac.py 10000 10)
+echo "Raw output: $out"  # Raw outputの確認
 filtered_out=$(echo "$out" | sed 's/現在時刻:.*//')
+echo "Filtered output: $filtered_out"  # フィルタ後の出力確認
 
 # 期待する出力
 expected_output="税込み: 11000.00円"
@@ -21,7 +23,9 @@ fi
 
 # 不正な入力（文字列）を与える場合
 out=$(python3 ./tiac.py あ)
+echo "Raw output: $out"  # Raw outputの確認
 filtered_out=$(echo "$out" | sed 's/現在時刻:.*//')
+echo "Filtered output: $filtered_out"  # フィルタ後の出力確認
 
 # エラーメッセージが含まれていることを確認
 expected_error="使い方: python3 script.py <金額> <消費税率>"
@@ -31,7 +35,9 @@ fi
 
 # 空の入力
 out=$(python3 ./tiac.py)
+echo "Raw output: $out"  # Raw outputの確認
 filtered_out=$(echo "$out" | sed 's/現在時刻:.*//')
+echo "Filtered output: $filtered_out"  # フィルタ後の出力確認
 
 # エラーメッセージが含まれていることを確認
 if [ "${filtered_out}" != "${expected_error}" ]; then
