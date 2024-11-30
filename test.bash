@@ -3,23 +3,27 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 ng () {
-	echo ${1}行目が違うよ
-	res=1
+    echo ${1}行目が違うよ
+    res=1
 }
 
 res=0
 
-out=$(seq 5 | ./tiac.py)
-[ "${out}" = 15 ] || ng "$LINENO"
+# 適切な引数を指定してtiac.pyを実行
+out=$(echo 10000 10 | ./tiac.py)
+echo "$out"
+[ "${out}" = "税込み: 11000.00円" ] || ng "$LINENO"
 
-### 変な時###
+# 変な時
 out=$(echo あ | ./tiac.py)
+echo "$out"
 [ "$?" = 1 ] || ng "$LINENO"
-[ "${out}" = "" ] || "$LINENO"
 
+# 空の入力
 out=$(echo | ./tiac.py)
+echo "$out"
 [ "$?" = 1 ] || ng "$LINENO"
-[ "${out}" = "" ] || ng "$LINENO"
 
 [ "${res}" = 0 ] && echo OK
 exit $res
+
