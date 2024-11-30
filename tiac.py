@@ -42,7 +42,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
 
-#税込み金額計算、Tax-included amount calculation略してtiac.py    if price_input.replace('.', '', 1).isdigit() and tax_rate_input.replace('.', '', 1).isdigit():
+#税込み金額計算、Tax-included amount calculation略してtiac.py
         price = float(price_input)
         tax_rate = float(tax_rate_input) / 100
         calculate_tax_included(price, tax_rate)
