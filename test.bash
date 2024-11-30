@@ -8,17 +8,17 @@ ng () {
 res=0
 
 # 引数を渡してtiac.pyを実行
-out=$(echo 10000 10 | python3 ./tiac.py)
+out=$(python3 ./tiac.py 10000 10)
 echo "$out"
 [ "${out}" = "税込み: 11000.00円" ] || ng "$LINENO"
 
 # 変な時
-out=$(echo あ | python3 ./tiac.py)
+out=$(python3 ./tiac.py あ)
 echo "$out"
 [ "$?" = 1 ] || ng "$LINENO"
 
 # 空の入力
-out=$(echo | python3 ./tiac.py)
+out=$(python3 ./tiac.py)
 echo "$out"
 [ "$?" = 1 ] || ng "$LINENO"
 
