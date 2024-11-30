@@ -9,20 +9,20 @@ ng () {
 
 res=0
 
-# 期待する出力（seqと組み合わせ）
-out=$(seq 5 | ./tiac.py)
+# 引数なしでtiac.pyを実行して、エラーメッセージを確認
+out=$(python3 ./tiac.py)
 if [ "$out" != "使い方: python3 script.py <金額> <消費税率>" ]; then
     ng "$LINENO"
 fi
 
-
+# 不正な引数を渡してtiac.pyを実行して、終了ステータスと出力を確認
 out=$(python3 ./tiac.py 10000 10)
 if [ "$?" != 1 ]; then
     ng "$LINENO"
 fi
 
-# 空の入力
-out=$(python3 ./tiac.py 10000 10)
+# 再度引数なしで実行し、期待されるエラーメッセージを確認
+out=$(python3 ./tiac.py)
 if [ "$out" != "使い方: python3 script.py <金額> <消費税率>" ]; then
     ng "$LINENO"
 fi
