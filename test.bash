@@ -1,52 +1,26 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2024 suzuki takuma <s23c1076vc@s.chibakoudai.jp>
+# SPDX-License-Identifier: BSD-3-Clause
 
 ng () {
-    echo "${1} 行目が違うよ"
-    res=1
+        echo ${1}行目が違うよ
+        res=1
 }
 
 res=0
 
-# 正しい引数を渡してtiac.pyを実行
-out=$(python3 ./tiac.py 10000 10)
-echo "Raw output: $out"  # Raw outputの確認
+out=$(seq 5 | ./tiac.py)
+[ "${out}" = 15 ] || ng "$LINENO"
 
-# 期待する出力
-expected_output="税込み: 11000.00円"
+### 変な時###
+out=$(echo あ | ./tiac.py)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || "$LINENO"
 
-# 正常ケース
-if [ "${out}" != "${expected_output}" ]; then
-    ng "$LINENO"
-fi
+out=$(echo | ./tiac.py)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
 
-# 不正な入力（文字列）を与える場合
-out=$(python3 ./tiac.py あ)
-echo "Raw output: $out"  # Raw outputの確認
-
-# 期待するエラーメッセージ
-expected_error="使い方: python3 script.py <金額> <消費税率>"
-
-# grepを使って部分一致を確認
-if echo "$out" | grep -q "$expected_error"; then
-    echo "エラーメッセージが一致しました"
-else
-    ng "$LINENO"
-fi
-
-# 空の入力
-out=$(python3 ./tiac.py)
-echo "Raw output: $out"  # Raw outputの確認
-
-# エラーメッセージが含まれていることを確認
-if echo "$out" | grep -q "$expected_error"; then
-    echo "エラーメッセージが一致しました"
-else
-    ng "$LINENO"
-fi
-
-if [ "${res}" = 0 ]; then
-    echo OK
-else
-    exit 1
-fi
+[ "${res}" = 0 ] && echo OK
+exit $res
 
