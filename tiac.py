@@ -14,7 +14,7 @@ if __name__ == "__main__":
         for line in sys.stdin:
             inputs = line.strip().split()
             if len(inputs) != 2:
-                print("エラー:金額と消費税率をスペースで区切って指定してください。", file=sys.stderr)
+                print("エラー: 金額と消費税率をスペースで区切って指定してください。", file=sys.stderr)
                 continue
 
             price_input, tax_rate_input = inputs  #標準入力の値を分解
@@ -25,7 +25,7 @@ if __name__ == "__main__":
                 tax_rate = float(tax_rate_input) / 100
                 calculate_tax_included(price, tax_rate)
             else:
-                print("エラー:金額と消費税率は数値で指定してください。", file=sys.stderr)
+                print("エラー: 金額と消費税率は数値で指定してください。", file=sys.stderr)
     except Exception as e:
         print(f"エラーが発生しました: {e}", file=sys.stderr)
         sys.exit(1)
