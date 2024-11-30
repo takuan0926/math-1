@@ -75,5 +75,5 @@ bash -xv ./test.bash
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
 - @ 2024 suzuki takuma
 
-著作権
+## 著作権
 2024 Suzuki Takuma <s23c1076vc@s.chibakoudai.jp>
