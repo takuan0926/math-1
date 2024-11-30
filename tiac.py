@@ -17,7 +17,9 @@ if __name__ == "__main__":
                 print("エラー: 金額と消費税率をスペースで区切って指定してください。", file=sys.stderr)
                 continue
 
-    price_input = sys.argv[1], tax_rate_input = sys.argv[2]
+            price_input = sys.argv[1]
+            tax_rate_input = sys.argv[2]
+
 
     if price_input.replace('.', '', 1).isdigit() and tax_rate_input.replace('.', '', 1).isdigit():
                 price = float(price_input)
