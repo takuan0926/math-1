@@ -9,27 +9,21 @@ ng () {
 
 res=0
 
-#引数なしでエラーメッセージを確認
-out=$(python3 ./tiac.py)
-if [ "$out" != "使い方: python3 script.py <金額> <消費税率>" ]; then
+#正常なとき
+out=$(echo "10000 10" | python3 ./tiac.py)
+if [[ "$out" != *"税込み: 11000.00円"* ]]; then
     ng "$LINENO"
 fi
 
-#不正な引数を渡して、終了ステータスと出力を確認
-out=$(python3 ./tiac.py 10000 10)
-if [ "$?" != 0 ]; then
+#不正な入力なとき
+out=$(echo "not_a_number 10" | python3 ./tiac.py 2>&1)
+if [[ "$out" != *"エラー: 金額と消費税率は数値で指定してください"* ]]; then
     ng "$LINENO"
 fi
 
-#再度引数なしで実行
-out=$(python3 ./tiac.py)
-if [ "$out" != "使い方: python3 script.py <金額> <消費税率>" ]; then
-    ng "$LINENO"
-fi
-
+#結果表示
 if [ "${res}" = 0 ]; then
     echo OK
 else
     exit 1
 fi
-
