@@ -17,7 +17,7 @@ out=$(echo あ | ./tiac.py)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || "$LINENO"
 
-out=$(echo | ./plus_stdin)
+out=$(echo | ./tiac.py)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
