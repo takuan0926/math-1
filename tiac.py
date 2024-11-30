@@ -10,18 +10,17 @@ def calculate_tax_included(price, tax_rate):
 
 if __name__ == "__main__":
     try:
-        # 標準入力から1行ずつ読み込む
+        #標準入力から1行ずつ読み込む
         for line in sys.stdin:
             inputs = line.strip().split()
             if len(inputs) != 2:
                 print("エラー: 金額と消費税率をスペースで区切って指定してください。", file=sys.stderr)
                 continue
 
-            price_input = sys.argv[1]
-            tax_rate_input = sys.argv[2]
+            price_input, tax_rate_input = inputs  #標準入力の値を分解
 
 
-    if price_input.replace('.', '', 1).isdigit() and tax_rate_input.replace('.', '', 1).isdigit():
+            if price_input.replace('.', '', 1).isdigit() and tax_rate_input.replace('.', '', 1).isdigit():
                 price = float(price_input)
                 tax_rate = float(tax_rate_input) / 100
                 calculate_tax_included(price, tax_rate)
