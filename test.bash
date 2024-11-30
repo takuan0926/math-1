@@ -15,14 +15,14 @@ if [ "$out" != "使い方: python3 script.py <金額> <消費税率>" ]; then
     ng "$LINENO"
 fi
 
-# 不正な入力（文字列）
-out=$(echo あ | ./tiac.py)
+
+out=$(python3 ./tiac.py 10000 10)
 if [ "$?" != 1 ]; then
     ng "$LINENO"
 fi
 
 # 空の入力
-out=$(echo | ./tiac.py)
+out=$(python3 ./tiac.py 10000 10)
 if [ "$out" != "使い方: python3 script.py <金額> <消費税率>" ]; then
     ng "$LINENO"
 fi
