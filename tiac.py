@@ -22,6 +22,7 @@ def calculate_tax_included(price, tax_rate):
     elif price < 0:
         print("なんだい、金が欲しいのかい？")
     else:
+        print("普通の金額かぁ")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
