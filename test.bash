@@ -26,7 +26,9 @@ echo "Raw output: $out"  # Raw outputの確認
 # 期待するエラーメッセージ
 expected_error="使い方: python3 script.py <金額> <消費税率>"
 
-if [[ "$out" != *"$expected_error"* ]]; then
+# grepを使って部分一致を確認
+echo "$out" | grep -q "$expected_error"
+if [ $? -ne 0 ]; then
     ng "$LINENO"
 fi
 
@@ -35,7 +37,8 @@ out=$(python3 ./tiac.py)
 echo "Raw output: $out"  # Raw outputの確認
 
 # エラーメッセージが含まれていることを確認
-if [[ "$out" != *"$expected_error"* ]]; then
+echo "$out" | grep -q "$expected_error"
+if [ $? -ne 0 ]; then
     ng "$LINENO"
 fi
 
