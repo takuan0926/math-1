@@ -13,20 +13,9 @@ def calculate_tax_included(price, tax_rate):
     tax_included_price = price * (1 + tax_rate)
     print(f"税込み: {tax_included_price:.2f}円")
 
-    if price == 3:
-        print("サァン")
-    elif price == 114514:
-        print("やりますねぇ")
-    elif price >= 10000:
-        print("一万円入りまーす！")
-    elif price < 0:
-        print("なんだい、金が欲しいのかい？")
-    else:
-        print("普通の金額かぁ")
-
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-       print("使い方: python3 script.py <金額> <消費税率>")
+       print("使用方法: python3 script.py <金額> <消費税率>")
        sys.exit(0)
 
 
@@ -38,7 +27,7 @@ if __name__ == "__main__":
         tax_rate = float(tax_rate_input) / 100
         calculate_tax_included(price, tax_rate)
     else:
-        print("エラー: 金額と消費税率は数値で入力してください。")
+        print("エラー: 金額と消費税率は数値で入力されていません。")
         sys.exit(1)
 
 
