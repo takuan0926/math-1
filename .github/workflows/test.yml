@@ -9,8 +9,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: All test
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: All test
       run: bash -xv ./test.bash
