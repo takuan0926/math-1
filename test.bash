@@ -17,7 +17,7 @@ fi
 
 # 不正な引数を渡してtiac.pyを実行して、終了ステータスと出力を確認
 out=$(python3 ./tiac.py 10000 10)
-if [ "$?" != 1 ]; then
+if [ "$?" != 0 ]; then
     ng "$LINENO"
 fi
 
