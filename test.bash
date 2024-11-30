@@ -9,11 +9,11 @@ ng () {
 
 res=0
 
-out=$(seq 5 | ./plus_stdin)
+out=$(seq 5 | ./tiac.py)
 [ "${out}" = 15 ] || ng "$LINENO"
 
 ### 変な時###
-out=$(echo あ | ./plus_stdin)
+out=$(echo あ | ./tiac.py)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || "$LINENO"
 
