@@ -76,6 +76,12 @@ bash -xv ./test.bash
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
 - @ 2024 suzuki takuma
 
-## 著作権 ライセンス
+## 著作権
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
 - © 2024 Suzuki Takuma <s23c1076vc@s.chibakoudai.jp>
+
+##　SPDXライセンス情報
+```
+SPDX-FileCopyrightText: 2024 suzuki takuma <s23c1076vc@s.chibakoudai.jp>
+SPDX-License-Identifier: BSD-3-Clause
+```
