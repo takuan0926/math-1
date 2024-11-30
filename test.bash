@@ -1,6 +1,4 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2024 suzuki takuma <s23c1076vc@s.chibakoudai.jp>
-# SPDX-License-Identifier: BSD-3-Clause
 
 ng () {
     echo ${1}行目が違うよ
@@ -9,18 +7,18 @@ ng () {
 
 res=0
 
-# 適切な引数を指定してtiac.pyを実行
-out=$(echo 10000 10 | ./tiac.py)
+# 引数を渡してtiac.pyを実行
+out=$(echo 10000 10 | python3 ./tiac.py)
 echo "$out"
 [ "${out}" = "税込み: 11000.00円" ] || ng "$LINENO"
 
 # 変な時
-out=$(echo あ | ./tiac.py)
+out=$(echo あ | python3 ./tiac.py)
 echo "$out"
 [ "$?" = 1 ] || ng "$LINENO"
 
 # 空の入力
-out=$(echo | ./tiac.py)
+out=$(echo | python3 ./tiac.py)
 echo "$out"
 [ "$?" = 1 ] || ng "$LINENO"
 

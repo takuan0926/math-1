@@ -36,9 +36,12 @@ if __name__ == "__main__":
     if price_input.replace('.', '', 1).isdigit() and tax_rate_input.replace('.', '', 1).isdigit():
         price = float(price_input)
         tax_rate = float(tax_rate_input) / 100
+        calculate_tax_included(price, tax_rate)
     else:
         print("エラー: 金額と消費税率は数値で入力してください。")
         sys.exit(1)
 
-    calculate_tax_included(price, tax_rate)
-#税込み金額計算、Tax-included amount calculation略してtiac.py
+#税込み金額計算、Tax-included amount calculation略してtiac.py    if price_input.replace('.', '', 1).isdigit() and tax_rate_input.replace('.', '', 1).isdigit():
+        price = float(price_input)
+        tax_rate = float(tax_rate_input) / 100
+        calculate_tax_included(price, tax_rate)
