@@ -26,9 +26,10 @@ def calculate_tax_included(price, tax_rate):
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("使い方: python3 script.py <金額> <消費税率>")
-        print("例: python3 script.py 10000 10")
-        sys.exit(1)
+       print("使い方: python3 script.py <金額> <消費税率>")
+       print("例: python3 script.py 10000 10")
+       sys.exit(1)
+
 
     price_input = sys.argv[1]
     tax_rate_input = sys.argv[2]
