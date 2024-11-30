@@ -56,7 +56,7 @@ echo "not_a_number" | ./tiac.py
 ---
 ## テスト
 テストスクリプト test.bash を使用して動作確認を行います。
-- 実行方法
+実行方法
 ```
 bash -xv ./test.bash
 ```
