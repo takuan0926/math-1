@@ -63,9 +63,3 @@ echo "not_a_number" | ./tiac
 
 ## 著作権
 © 2024 Suzuki Takuma
-
-##　ライセンス情報
-```
-SPDX-FileCopyrightText: 2024 suzuki takuma <s23c1076vc@s.chibakoudai.jp>
-SPDX-License-Identifier: BSD-3-Clause
-```
