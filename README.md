@@ -17,7 +17,7 @@
 
 ## 動作環境
 このコマンドはPythonで作られており、以下の環境で動作確認済
-- Python: 3.6以降
+- Python 3.8.10
 - OS: Linux, Windows(WSL 環境を推奨), macOS,
 
 ## 使用方法
