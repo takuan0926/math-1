@@ -18,7 +18,7 @@
 ## 動作環境
 このコマンドはPythonで作られており、以下の環境で動作確認済
 - Python: 3.6以降
-- OS: Linux, Windows(WSL 推奨)
+- OS: Linux, Windows(WSL 環境を推奨), macOS,
 
 ## 使用方法
 以下の形式でコマンドラインからスクリプトを実行します。
