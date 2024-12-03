@@ -17,7 +17,7 @@ fi
 
 #不正な入力なとき
 out=$(echo "not_a_number 10" | python3 ./tiac 2>&1)
-if [[ "$out" != *"エラー: エラー: 数値を入力してください。"* ]]; then
+if [[ "$out" != *"エラー: 数値を入力してください。"* ]]; then
     ng "$LINENO"
 fi
 
