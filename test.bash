@@ -16,7 +16,7 @@ if [[ "$out" != *"税込み: 11000.00円"* ]]; then
 fi
 
 #不正な入力なとき
-out=$(echo "not_a_number 10" | python3 ./tiac. 2>&1)
+out=$(echo "not_a_number 10" | python3 ./tiac 2>&1)
 if [[ "$out" != *"エラー: 金額と消費税率は数値で指定してください"* ]]; then
     ng "$LINENO"
 fi
